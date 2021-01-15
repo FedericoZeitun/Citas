@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto fue creado con React, utilizando el framework de css "Skeleton". Dicho proyecto consiste en una aplicación de una veterinaria para obtener y mostrar luego citas de animales, con sus respectivos nombres, síntomas, dueño, hora, etc. 
 
 ## Available Scripts
 
