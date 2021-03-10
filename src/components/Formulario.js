@@ -4,7 +4,6 @@ import Proptypes from 'prop-types'
 
 const Formulario= ({crearCita})=>{
 
-    //Crear state de citas
     const [cita, actualizarCita] = useState({
         mascota:"",
         propietario:"",
@@ -15,7 +14,6 @@ const Formulario= ({crearCita})=>{
 
     const[error, actualizarError] = useState(false)
 
-    //Funcion que se ejecuta cuando el usuario escribe en un input
     const actualizarState = (e)=>{
         actualizarCita({
             ...cita,
@@ -23,30 +21,24 @@ const Formulario= ({crearCita})=>{
         })
     }
 
-    //Extraer los valores
     const {mascota, propietario, fecha, hora, sintomas} = cita
 
-    //Cuando el usuario presiona agregar cita
     const submitCita = e =>{
         e.preventDefault()
         
-        //Validar
+
         if(mascota.trim() === "" || propietario.trim() === "" || fecha.trim() === ""
         || hora.trim() === "" || sintomas.trim() === ""){
             actualizarError(true)
             return
         }
 
-        //Eliminar el mensaje previo
         actualizarError(false)
 
-        //Asignar un id
         cita.id = uuidv4()
         
-        //Crear la cita
         crearCita(cita)
 
-        //Reiniciar el form
         actualizarCita({
             mascota:"",
             propietario:"",
