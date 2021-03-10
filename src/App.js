@@ -5,18 +5,13 @@ import Cita from './components/Cita';
 
 function App() {
 
-    //Citas en localStorage
     let citasIniciales = JSON.parse(localStorage.getItem("citas"))
     if (!citasIniciales){
         citasIniciales = []
     }
 
-
-
-    //Arreglo de citas
     const[citas, guardarCitas] = useState(citasIniciales)
 
-    //Use Effect para realizar ciertas operaciones cuando el state cambia
     useEffect(() => {
         let citasIniciales = JSON.parse(localStorage.getItem("citas"))
         if(citasIniciales){
@@ -31,13 +26,11 @@ function App() {
         guardarCitas([...citas, cita])
     }
 
-    //Funcion que elimina las citas por su id
     const eliminarCita = id =>{
         const nuevasCitas = citas.filter(cita => cita.id !== id)
         guardarCitas(nuevasCitas)
     }
 
-    //Mensaje condicional
     const titulo = citas.length === 0 ? 
     "No hay citas"
     : 
